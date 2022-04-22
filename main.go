@@ -32,7 +32,7 @@ func runMain() {
 	if branch == "development" || branch == "qa" {
 		AWS_ACCESS_KEY = secretsMap["AWS_ACCESS_KEY_NON_PROD"]
 		AWS_SECRET_ACCESS_KEY = secretsMap["AWS_SECRET_ACCESS_KEY_NON_PROD"]
-	} else if region == "us-east-1" || region == "ap-southeast-2" {
+	} else if region == "us-east-1" || region == "ap-southeast-2" || region == "eu-central-1" {
 		AWS_ACCESS_KEY = secretsMap["AWS_ACCESS_KEY"]
 		AWS_SECRET_ACCESS_KEY = secretsMap["AWS_SECRET_ACCESS_KEY"]
 	} else {
