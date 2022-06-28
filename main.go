@@ -15,6 +15,10 @@ func runMain() {
 	secrets := os.Getenv("SECRETS")
 	branch := os.Getenv("BRANCH")
 
+	core.Info("AWS_REGION: " + region)
+	core.Info("SECRETS: " + secrets)
+	core.Info("BRANCH: " + branch)
+
 	if region == "" || secrets == "" {
 		core.Error("AWS_REGION or SECRETS is not set")
 		os.Exit(1)
@@ -29,7 +33,7 @@ func runMain() {
 		return
 	}
 
-	if branch == "development" {
+	if branch == "development" || branch == "qa" || branch == "staging" || branch == "qa1" {
 		AWS_ACCESS_KEY = secretsMap["AWS_ACCESS_KEY_NON_PROD"]
 		AWS_SECRET_ACCESS_KEY = secretsMap["AWS_SECRET_ACCESS_KEY_NON_PROD"]
 	} else if region == "us-east-1" || region == "ap-southeast-2" {
