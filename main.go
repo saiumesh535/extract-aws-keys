@@ -15,6 +15,10 @@ func runMain() {
 	secrets := os.Getenv("SECRETS")
 	branch := os.Getenv("BRANCH")
 
+	core.Info("AWS_REGION: " + region)
+	core.Info("SECRETS: " + secrets)
+	core.Info("BRANCH: " + branch)
+
 	if region == "" || secrets == "" {
 		core.Error("AWS_REGION or SECRETS is not set")
 		os.Exit(1)
